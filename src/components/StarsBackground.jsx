@@ -7,7 +7,7 @@ export default function StarsBackground() {
 
   useEffect(() => {
     const stars = [];
-    const count = 8; // More shooting stars
+    const count = 4; // More shooting stars
 
     for (let i = 0; i < count; i++) {
       stars.push({
