@@ -8,7 +8,7 @@ import PomoTimer from "../assets/PomoTimer.png";
 import FitSoc from "../assets/FitSocial.png";
 import AiCoach from "../assets/AI_Interviewer.jpg";
 import SoftMaxReg from "../assets/SoftMaxRegression.png";
-import GameDev from "../assets/GameDev.mp4";
+import GameDev from "../assets/GameDev.MP4";
 import DSoccer from "../assets/DSoccer.png";
 import FigmaDesign from "../assets/FigmaDesign.png";
 import Github from "../assets/Github.png";
