@@ -113,10 +113,10 @@ export default function Projects() {
 
   const getProjects = () => {
     switch (activeTab) {
-      case "ml":
-        return machineLearningProjects;
       case "web":
         return webAppProjects;
+      case "ml":
+        return machineLearningProjects;
       case "github":
         return githubRepos;
       case "other":
@@ -143,8 +143,9 @@ export default function Projects() {
       {/* Tabs */}
       <div className="flex justify-center space-x-6 mb-12">
         {[
-          { id: "ml", label: "AI/Machine Learning" },
+          
           { id: "web", label: "Web / App" },
+          { id: "ml", label: "AI/Machine Learning" },
           { id: "github", label: "GitHub Repos" },
           { id: "other", label: "Other Projects" },
         ].map(({ id, label }) => (
