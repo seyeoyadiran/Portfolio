@@ -11,6 +11,7 @@ import SoftMaxReg from "../assets/SoftMaxRegression.png";
 import GameDev from "../assets/GameDev.mp4";
 import DSoccer from "../assets/DSoccer.png";
 import FigmaDesign from "../assets/FigmaDesign.png";
+import Github from "../assets/Github.png";
 
 const machineLearningProjects = [
   {
@@ -67,14 +68,14 @@ const githubRepos = [
   {
     id: 5,
     title: "Video Edge Detection Project",
-    img: project2,
+    img: Github,
     description: "Using Python to process video frames and apply edge detection algorithms.",
     url: "https://github.com/seyeoyadiran/VideoEdgeDetection",
   },
   {
     id: 6,
     title: "Task Manager W/Spring Boot",
-    img: project3,
+    img: Github,
     description: " Java project using Spring Boot backend with RESTful APIs for managing tasks.",
     url: "https://github.com/seyeoyadiran/TaskManager_withSpringBoot",
   },
