@@ -1,5 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
+import myPic from "../assets/OluwaseyeO.jpg"; 
+import MeWithSuit from "../assets/MeWithSuit.png"; 
 
 export default function Hero() {
   return (
@@ -14,23 +16,25 @@ export default function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-4xl md:text-6xl font-bold tracking-tight"
+        className="text-4xl md:text-6xl font-bold tracking-tight mb-8"
       >
         Hi, I’m <span className="text-gold">Oluwaseye Oyadiran</span>
       </motion.h1>
 
-      {/* Tagline */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 1 }}
-        className="mt-4 text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed"
+      {/* REPLACED: Image in place of the text tagline */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+        className="mb-8" // Add some space below the image
       >
-        Full-Stack Software Engineer specializing in <span className="text-gold">MERN</span> development, 
-        <span className="text-gold"> AWS Cloud</span> solutions, and 
-        building scalable, high-performance applications that drive real business impact.
-      </motion.p>
-
+        <img
+          src={MeWithSuit} // <--- R E P L A C E  W I T H  Y O U R  I M A G E  P A T H
+          alt="Oluwaseye Oyadiran Profile"
+          className="w-48 h-48 sm:w-64 sm:h-64 object-cover rounded-full shadow-xl shadow-yellow-900/50 border-4 border-gold/50"
+        />
+      </motion.div>
+      
       {/* CTA Buttons */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4">
         <motion.a
@@ -53,43 +57,3 @@ export default function Hero() {
     </section>
   );
 }
-
-
-// import React from "react";
-// import { motion } from "framer-motion";
-
-// export default function Hero() {
-//   return (
-//     <section
-//       id="home"
-//       className="min-h-[60vh] flex flex-col justify-center items-center text-center text-yellow-500
-//                  bg-blackLux/40 backdrop-blur-md border border-yellow-400/20 px-6 py-10
-//                  shadow-md shadow-yellow-900/20 max-w-4xl mx-auto rounded-lg"
-//     >
-//       <motion.h1
-//         initial={{ opacity: 0, y: 40 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 1 }}
-//         className="text-4xl font-semibold tracking-tight"
-//       >
-//         Hi, I’m <span className="text-gold">Oluwaseye Oyadiran</span>
-//       </motion.h1>
-//       <motion.p
-//         initial={{ opacity: 0, y: 20 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ delay: 0.5, duration: 1 }}
-//         className="mt-4 text-base text-gray-300 max-w-lg leading-relaxed"
-//       >
-//         A passionate software engineer crafting elegant, high-performance solutions.
-//       </motion.p>
-//       <motion.a
-//         href="#projects"
-//         whileHover={{ scale: 1.05 }}
-//         className="mt-8 px-5 py-2.5 bg-gold/90 text-primary rounded-full font-medium
-//                    shadow-md shadow-gold/40 hover:shadow-gold transition"
-//       >
-//         View My Work
-//       </motion.a>
-//     </section>
-//   );
-// }

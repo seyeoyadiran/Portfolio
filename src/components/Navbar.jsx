@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Navbar() {
-  const sections = ["home", "about", "projects", "skills/certs", "contact"];
+  const sections = ["home", "about", "projects", "skills & certs", "contact"];
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);

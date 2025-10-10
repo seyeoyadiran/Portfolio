@@ -1,5 +1,3 @@
-//Version 4
-
 import { useEffect, useState } from "react";
 
 export default function StarsBackground() {
@@ -7,7 +5,7 @@ export default function StarsBackground() {
 
   useEffect(() => {
     const stars = [];
-    const count = 4; // More shooting stars
+    const count = 4; // Reduced number of shooting stars to half
 
     for (let i = 0; i < count; i++) {
       stars.push({
@@ -18,6 +16,7 @@ export default function StarsBackground() {
         duration: Math.random() * 6 + 8, // 8 to 14 sec
         delay: Math.random() * 10, // 0 to 10 sec
         opacity: Math.random() * 0.5 + 0.5, // 0.5 to 1
+        baseAngle: 60, // Base angle of 45 degrees
       });
     }
     setShootingStars(stars);
@@ -28,10 +27,9 @@ export default function StarsBackground() {
       <div
         className="fixed inset-0 overflow-hidden z-0 pointer-events-none"
         style={{
-            background:
-              "linear-gradient(to bottom, #000000 0%, #05050a 30%, #0b1e3d 60%, #15325c 85%, #1a2a5a 100%)",
-          }}
-          
+          background:
+            "linear-gradient(to bottom, #000000 0%, #05050a 30%, #0b1e3d 60%, #15325c 85%, #1a2a5a 100%)",
+        }}
       >
         {/* Stars layers */}
         <div className="stars-layer1 absolute inset-0"></div>
@@ -57,30 +55,34 @@ export default function StarsBackground() {
         })}
 
         {/* Shooting stars */}
-        {shootingStars.map(({ id, top, left, length, duration, delay, opacity }) => (
-          <div
-            key={id}
-            className="shooting-star"
-            style={{
-              position: "absolute",
-              top: `${top}%`,
-              left: `${left}%`,
-              width: "2px",
-              height: "2px",
-              borderRadius: "9999px",
-              background: "linear-gradient(45deg, white, transparent)",
-              filter: "drop-shadow(0 0 6px white)",
-              transformOrigin: "top left",
-              animationName: "shooting",
-              animationTimingFunction: "linear",
-              animationIterationCount: "infinite",
-              animationDuration: `${duration}s`,
-              animationDelay: `${delay}s`,
-              opacity: opacity,
-              "--shooting-length": `${length}px`,
-            }}
-          />
-        ))}
+        {shootingStars.map(({ id, top, left, length, duration, delay, opacity, baseAngle }) => {
+          const angle = baseAngle + Math.random() * 180 - 30; // Randomize angle between -30 to +30 degrees from base angle (45)
+          return (
+            <div
+              key={id}
+              className="shooting-star"
+              style={{
+                position: "absolute",
+                top: `${top}%`,
+                left: `${left}%`,
+                width: "2px",
+                height: "2px",
+                borderRadius: "9999px",
+                background: "linear-gradient(45deg, white, transparent)",
+                filter: "drop-shadow(0 0 6px white)",
+                transformOrigin: "top left",
+                animationName: "shooting",
+                animationTimingFunction: "linear",
+                animationIterationCount: "infinite",
+                animationDuration: `${duration}s`,
+                animationDelay: `${delay}s`,
+                opacity: opacity,
+                "--shooting-length": `${length}px`,
+                "--shooting-angle": `${angle}deg`, // Apply the random angle
+              }}
+            />
+          );
+        })}
       </div>
 
       <style jsx>{`
@@ -181,7 +183,7 @@ export default function StarsBackground() {
         @keyframes shooting {
           0% {
             height: 2px;
-            transform: translate(0, 0) rotate(45deg);
+            transform: translate(0, 0) rotate(var(--shooting-angle, 45deg));
             opacity: 1;
           }
           20% {
@@ -190,7 +192,7 @@ export default function StarsBackground() {
           }
           100% {
             height: var(--shooting-length, 40px);
-            transform: translate(-500px, 200px) rotate(45deg);
+            transform: translate(-500px, 200px) rotate(var(--shooting-angle, 45deg));
             opacity: 0;
           }
         }
@@ -198,6 +200,7 @@ export default function StarsBackground() {
     </>
   );
 }
+
 
 
 //Version 3
