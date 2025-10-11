@@ -11,15 +11,7 @@ export default function Hero() {
                  bg-blackLux/40 backdrop-blur-md border border-yellow-400/20 px-6 py-12
                  shadow-lg shadow-yellow-900/30 max-w-5xl mx-auto rounded-lg"
     >
-      {/* Name */}
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-4xl md:text-6xl font-bold tracking-tight mb-8"
-      >
-        Hi, I’m <span className="text-gold">Oluwaseye Oyadiran</span>
-      </motion.h1>
+    
 
       {/* REPLACED: Image in place of the text tagline */}
       <motion.div
@@ -34,6 +26,16 @@ export default function Hero() {
           className="w-48 h-48 sm:w-64 sm:h-64 object-cover rounded-full shadow-xl shadow-yellow-900/50 border-4 border-gold/50"
         />
       </motion.div>
+
+        {/* Name */}
+        <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-4xl md:text-6xl font-bold tracking-tight mb-8"
+      >
+        Hi, I’m <span className="text-gold">Oluwaseye Oyadiran</span>
+      </motion.h1>
       
       {/* CTA Buttons */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4">
