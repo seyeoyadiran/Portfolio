@@ -21,7 +21,7 @@ export default function Hero() {
         className="mb-8" // Add some space below the image
       >
         <img
-          src={MeWithSuit} // <--- R E P L A C E  W I T H  Y O U R  I M A G E  P A T H
+          src={MeWithSuit} 
           alt="Oluwaseye Oyadiran Profile"
           className="w-48 h-48 sm:w-64 sm:h-64 object-cover rounded-full shadow-xl shadow-yellow-900/50 border-4 border-gold/50"
         />
