@@ -53,6 +53,7 @@ const webAppProjects = [
     img: FitSoc,
     description:
       "Fitness Social Media App coming soon. Ask to see a demo!",
+    url: "https://fitsocial.fit",
   },
   {
     id: 3,
