@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* keep section tops visible below the fixed navbar when jumping via nav links */
+section {
+  scroll-margin-top: 80px;
+}
+
 body {
   background-color: #0a0a0a;
 }

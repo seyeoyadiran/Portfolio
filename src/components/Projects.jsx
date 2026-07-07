@@ -146,19 +146,19 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 px-6 text-white bg-blackLux/40 backdrop-blur-md border border-yellow-400/20 shadow-lg shadow-yellow-900/30 max-w-6xl mx-auto rounded-lg"
+      className="py-12 md:py-20 px-4 md:px-6 text-white bg-blackLux/40 backdrop-blur-md border border-yellow-400/20 shadow-lg shadow-yellow-900/30 max-w-6xl mx-auto rounded-lg"
     >
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-3xl font-bold border-b-4 border-yellow-500 inline-block pb-2 mb-12 tracking-wide"
+        className="text-2xl md:text-3xl font-bold border-b-4 border-yellow-500 inline-block pb-2 mb-8 md:mb-12 tracking-wide"
       >
         Projects
       </motion.h2>
 
       {/* Tabs */}
-      <div className="flex justify-center space-x-6 mb-12">
+      <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8 md:mb-12">
         {[
           
           { id: "web", label: "Web / App" },
@@ -169,7 +169,7 @@ export default function Projects() {
           <button
             key={id}
             onClick={() => setActiveTab(id)}
-            className={`px-5 py-2 rounded-full font-semibold transition ${
+            className={`px-4 md:px-5 py-2 rounded-full font-semibold text-sm md:text-base transition ${
               activeTab === id
                 ? "bg-yellow-500 text-black shadow-lg"
                 : "bg-gray-800 hover:bg-gray-700 text-yellow-400"
@@ -181,7 +181,7 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className="mt-8 grid md:grid-cols-3 gap-10">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
         {getProjects().map((p) => (
           <motion.div
             key={p.id}
@@ -196,18 +196,18 @@ export default function Projects() {
           >
             <img src={p.img} alt={p.title} className="w-full h-52 object-cover rounded-t-2xl" />
 
-            {/* Play Overlay for video items */}
+            {/* Play Overlay for video items — always visible on touch, hover-only on desktop */}
             {p.video && (
-              <div className="absolute inset-0 bg-black/60 hidden group-hover:flex items-center justify-center transition">
-                <span className="text-yellow-400 text-lg font-bold bg-black/30 px-3 py-1 rounded-full border border-yellow-400">
+              <div className="absolute inset-x-0 top-0 h-52 flex items-center justify-center transition md:bg-black/60 md:opacity-0 md:group-hover:opacity-100">
+                <span className="text-yellow-400 text-base md:text-lg font-bold bg-black/50 px-3 py-1 rounded-full border border-yellow-400">
                   ▶ Play Preview
                 </span>
               </div>
             )}
 
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold text-yellow-400">{p.title}</h3>
-              <p className="mt-3 text-gray-300 leading-relaxed tracking-wide">{p.description}</p>
+            <div className="p-5 md:p-6">
+              <h3 className="text-xl md:text-2xl font-semibold text-yellow-400">{p.title}</h3>
+              <p className="mt-3 text-sm md:text-base text-gray-300 leading-relaxed tracking-wide">{p.description}</p>
             </div>
           </motion.div>
         ))}
@@ -220,7 +220,7 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-center z-50 px-4"
             onClick={() => setVideoSrc(null)}
           >
             <motion.div
@@ -228,19 +228,21 @@ export default function Projects() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative bg-blackLux border border-yellow-500/40 shadow-2xl rounded-xl overflow-hidden"
-              style={{ maxWidth: "600px", width: "90%", height: "calc(100vh - 160px)" }} // matches projects window
+              className="relative bg-blackLux border border-yellow-500/40 shadow-2xl rounded-xl overflow-hidden w-full"
+              style={{ maxWidth: "600px" }}
               onClick={(e) => e.stopPropagation()}
             >
               <video
                 src={videoSrc}
                 controls
                 autoPlay
-                className="w-full h-full object-cover rounded-lg"
+                playsInline
+                className="w-full max-h-[75vh] object-contain rounded-lg bg-black"
               />
               <button
                 onClick={() => setVideoSrc(null)}
-                className="absolute top-2 right-3 text-white text-xl font-bold"
+                aria-label="Close video"
+                className="absolute top-2 right-3 text-white text-2xl font-bold p-1"
               >
                 ✕
               </button>

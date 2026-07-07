@@ -5,9 +5,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="pt-40 pb-16 px-6 text-white"
+      className="pt-24 md:pt-40 pb-16 px-4 md:px-6 text-white"
     >
-      <div className="max-w-2xl mx-auto text-center bg-blackLux/60 backdrop-blur-md rounded-xl p-8 shadow-lg shadow-yellow-900/40 border border-yellow-700/40">
+      <div className="max-w-2xl mx-auto text-center bg-blackLux/60 backdrop-blur-md rounded-xl p-6 md:p-8 shadow-lg shadow-yellow-900/40 border border-yellow-700/40">
         <motion.h2
           initial={{ y: -30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}

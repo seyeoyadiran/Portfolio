@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full bg-primary bg-opacity-80 backdrop-blur-lg z-[999]">
+    <nav className="fixed w-full bg-[#0a0a0a]/80 backdrop-blur-lg z-[999]">
       <div className="max-w-7xl mx-auto flex items-center px-6 py-4 text-white relative">
 
         {/* Left: Logo */}
@@ -44,8 +44,10 @@ export default function Navbar() {
 
         {/* Right: Mobile Menu Button */}
         <button
-          className="md:hidden ml-auto focus:outline-none"
+          className="md:hidden ml-auto p-2 -mr-2 focus:outline-none"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +72,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-primary bg-opacity-90 backdrop-blur-lg">
+        <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-yellow-700/30">
           <ul className="flex flex-col items-center gap-6 py-6 text-white">
             {sections.map((section) => (
               <li key={section}>
