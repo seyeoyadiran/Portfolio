@@ -43,7 +43,7 @@ const webAppProjects = [
     img: BlogScreenShot,
     description:
       "Personal blog to take you along on my journey to greatness.",
-    url: "https://seye-sblog.onrender.com/",
+    url: "https://seye-sblog.vercel.app/",
   },
   {
     id: 2,
