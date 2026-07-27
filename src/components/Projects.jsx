@@ -179,7 +179,7 @@ export default function Projects() {
       </div>
 
       {/* Projects grid */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-md mx-auto md:max-w-none">
+      <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-6 md:gap-10">
         {getProjects().map((p) => (
           <motion.div
             key={p.id}
@@ -192,20 +192,20 @@ export default function Projects() {
               else if (p.url) window.open(p.url, "_blank");
             }}
           >
-            <img src={p.img} alt={p.title} className="w-full h-52 object-cover rounded-t-2xl" />
+            <img src={p.img} alt={p.title} className="w-full h-24 sm:h-36 md:h-52 object-cover rounded-t-2xl" />
 
             {/* Play Overlay for video items — always visible on touch, hover-only on desktop */}
             {p.video && (
-              <div className="absolute inset-x-0 top-0 h-52 flex items-center justify-center transition md:bg-black/60 md:opacity-0 md:group-hover:opacity-100">
-                <span className="text-yellow-400 text-base md:text-lg font-bold bg-black/50 px-3 py-1 rounded-full border border-yellow-400">
-                  ▶ Play Preview
+              <div className="absolute inset-x-0 top-0 h-24 sm:h-36 md:h-52 flex items-center justify-center transition md:bg-black/60 md:opacity-0 md:group-hover:opacity-100">
+                <span className="text-yellow-400 text-[10px] sm:text-sm md:text-lg font-bold bg-black/50 px-2 md:px-3 py-1 rounded-full border border-yellow-400">
+                  ▶ Play<span className="hidden sm:inline"> Preview</span>
                 </span>
               </div>
             )}
 
-            <div className="p-5 md:p-6">
-              <h3 className="text-xl md:text-2xl font-semibold text-yellow-400">{p.title}</h3>
-              <p className="mt-3 text-sm md:text-base text-gray-300 leading-relaxed tracking-wide">{p.description}</p>
+            <div className="p-2 sm:p-4 md:p-6">
+              <h3 className="text-xs sm:text-lg md:text-2xl font-semibold text-yellow-400">{p.title}</h3>
+              <p className="mt-1 md:mt-3 text-[10px] sm:text-sm md:text-base text-gray-300 leading-snug md:leading-relaxed tracking-wide">{p.description}</p>
             </div>
           </motion.div>
         ))}
